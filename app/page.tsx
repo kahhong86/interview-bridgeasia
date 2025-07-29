@@ -47,6 +47,8 @@ export default function Home() {
       
       <p className="text-center mb-8">Circle the correct answer</p>
       <QuestionList onSubmitScore={handleScore} name={name}/>
+
+      <p className="mx-auto text-center mt-4">copyright: mathinenglish.com</p>
       </div>
     </div>
   );
