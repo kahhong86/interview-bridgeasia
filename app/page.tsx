@@ -21,8 +21,9 @@ export default function Home() {
   };
 
   return (
-    <div className={`min-h-screen lg:p-24 p-10 ${darkMode ? "dark-mode" : ""}`}>
-      <button
+    <div className={`min-h-screen  ${darkMode ? "dark-mode" : ""}`}>
+      <div className="lg:p-24 lg:max-w-6xl mx-auto p-10">
+        <button
         onClick={toggleDarkMode}
         className="mb-4 px-4 py-2 border rounded"
       >
@@ -46,6 +47,7 @@ export default function Home() {
       
       <p className="text-center mb-8">Circle the correct answer</p>
       <QuestionList onSubmitScore={handleScore} name={name}/>
+      </div>
     </div>
   );
 }
