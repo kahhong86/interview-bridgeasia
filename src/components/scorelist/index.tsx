@@ -57,7 +57,7 @@ const handleDeleteAll = async () => {
                 <p>{score.name}</p>
                 <p>{score.value}</p>
                 <button
-                  className="ml-4 text-red-500 cursor-pointer absolute right-[-60px]"
+                  className="delete-button ml-4 text-red-500 cursor-pointer absolute right-[40px] text-xs mt-[1px]"
                   onClick={() => handleDelete(score.id)}
                 >
                   Delete
@@ -67,7 +67,7 @@ const handleDeleteAll = async () => {
         </div>
         <div className="text-right mt-2">
             <button
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded cursor-pointer"
+              className="mt-4 px-4 py-2 bg-red-500 text-white rounded cursor-pointer delete-all-button"
               onClick={handleDeleteAll}
             >
               Delete All Scores

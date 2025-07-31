@@ -16,7 +16,6 @@ const Home: FC = () => {
   const handleScore = async(value: number | null) => {
     setScore(value);
     
-
     if (name.trim() && value){
       try{
         await setDoc(doc(getFirestore(), "scores", name), {
@@ -43,7 +42,6 @@ const Home: FC = () => {
   const handleClose = () => {
     setResult(false);
   }
-
 
   return (
     <Layout>

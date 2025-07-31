@@ -51,7 +51,7 @@ const QuestionList: FC<QuestionListProps> = ({ onSubmitScore, name, onNameChange
 
     return (
         <form className="experience-list" onSubmit={handleSubmit}>
-            <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
                 {Question.map((item, index) => {
                     const selectedOptionId = selected[index];
                     const isSelected = selectedOptionId !== undefined && selectedOptionId !== null;
@@ -63,7 +63,7 @@ const QuestionList: FC<QuestionListProps> = ({ onSubmitScore, name, onNameChange
                             <ul className="options-list">
                                 {item.options.map(option => (
                                     <li key={option.id} className="option-item">
-                                        <label>
+                                        <label className="cursor-pointer label-option pr-1 rounded-full">
                                             <span
                                                 className={`inline-block h-[25px] p-1 leading-none option-button ${
                                                     submitted && selectedOptionId === option.id && isCorrect
