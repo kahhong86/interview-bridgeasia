@@ -33,6 +33,22 @@ body {
 .dark-mode input,
 .dark-mode .border-b {
   border-color: #fff;
-  background: #333;
+  background: transparent;
   color: #fff;
+}
+
+.score-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-style: none solid solid solid;
+}
+
+#title-score {
+  border-top: 1px solid #ccc;
+}
+
+.score-list:nth-child(even) {
+  background-color: #f9f9f9;
 }
