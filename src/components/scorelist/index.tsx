@@ -4,6 +4,7 @@ import React, { useEffect, useState , FC } from "react";
 import { collection, deleteDoc, getDocs, doc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 import Layout from "../layout";
+import styles from "./Scorelist.module.css";
 
 type Score = {
   id: string;
@@ -57,7 +58,7 @@ const handleDeleteAll = async () => {
                 <p>{score.name}</p>
                 <p>{score.value}</p>
                 <button
-                  className="delete-button ml-4 text-red-500 cursor-pointer absolute right-[40px] text-xs mt-[1px]"
+                  className={`${styles.deletebutton} ml-4 text-red-500 cursor-pointer absolute right-[40px] text-xs mt-[1px]`}
                   onClick={() => handleDelete(score.id)}
                 >
                   Delete
@@ -67,7 +68,7 @@ const handleDeleteAll = async () => {
         </div>
         <div className="text-right mt-2">
             <button
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded cursor-pointer delete-all-button"
+              className={`${styles.deleteallbutton} mt-4 px-4 py-2 bg-red-500 text-white rounded cursor-pointer`}
               onClick={handleDeleteAll}
             >
               Delete All Scores

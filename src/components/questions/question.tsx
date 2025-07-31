@@ -113,7 +113,7 @@ export const Question = [
         question: "999 rounded off to the nearest 10 is..",
         options: [
             { id: 1, value: "990" },
-            { id: 2, value: "1000" },
+            { id: 2, value: "1,000" },
             { id: 3, value: "909" },
         ],
         answer: 2,

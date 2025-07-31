@@ -1,0 +1,36 @@
+
+.scorelist {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-style: none solid solid solid;
+}
+
+#titlescore {
+  border-top: 1px solid #ccc;
+}
+
+.scorelist:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.deletebutton {
+  transition: background-color 0.5s, color 0.5s;
+  padding:2px 8px;
+  border-radius: 16px;
+}
+.deletebutton:hover {
+  background-color: #fb2c36;
+  color: #fff;
+}
+
+.deleteallbutton{
+  transition: background-color 0.5s, color 0.5s;
+  border:1px solid #fb2c36;
+}
+
+.deleteallbutton:hover {
+  background-color: #fff;
+  color: #fb2c36;
+}

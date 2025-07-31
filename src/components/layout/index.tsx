@@ -20,7 +20,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
                 <div className="text-right">
                     <button
                     onClick={toggleDarkMode}
-                    className="mb-0 px-2 py-1 border rounded text-[10px]"
+                    className="cursor-pointer mb-0 px-2 py-1 border rounded text-[10px]"
                     >
                         {darkMode ? "Light Mode" : "Dark Mode"}
                     </button>

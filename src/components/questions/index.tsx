@@ -2,6 +2,7 @@
 
 import React, { useState, FC } from 'react';
 import { Question } from './question';
+import styles from './Questions.module.css';
 
 interface QuestionListProps {
   onSubmitScore: (score: number | null) => void;
@@ -63,7 +64,7 @@ const QuestionList: FC<QuestionListProps> = ({ onSubmitScore, name, onNameChange
                             <ul className="options-list">
                                 {item.options.map(option => (
                                     <li key={option.id} className="option-item">
-                                        <label className="cursor-pointer label-option pr-1 rounded-full">
+                                        <label className={`${styles.labeloption} cursor-pointer pr-1 rounded-full`}>
                                             <span
                                                 className={`inline-block h-[25px] p-1 leading-none option-button ${
                                                     submitted && selectedOptionId === option.id && isCorrect
@@ -102,14 +103,14 @@ const QuestionList: FC<QuestionListProps> = ({ onSubmitScore, name, onNameChange
                 {submitted ?(
                     <div>
                         <span className="inline-block bg-gray-500 mt-2 px-4 py-1 text-white rounded">Submitted</span>
-                        <button className="cursor-pointer inline-block bg-blue-500 mt-2 ml-2 px-4 py-1 text-white rounded" type="reset" onClick={handleRestart}>Restart</button>
+                        <button className={`${styles.submitbutton} cursor-pointer inline-block bg-blue-500 mt-2 ml-2 px-4 py-1 text-white rounded`} type="reset" onClick={handleRestart}>Restart</button>
                     </div>
                     
                     
                 ):
                     <div>
-                        <button className="cursor-pointer bg-blue-500 mt-2 px-4 py-1 text-white rounded" type="submit">Submit</button>
-                        <button className="cursor-pointer bg-blue-500 mt-2 px-4 py-1 ml-2 text-white rounded" type="reset" onClick={handleReset}>Reset</button>
+                        <button className={`${styles.submitbutton} cursor-pointer bg-blue-500 mt-2 px-4 py-1 text-white rounded`} type="submit">Submit</button>
+                        <button className={`${styles.submitbutton} cursor-pointer bg-blue-500 mt-2 px-4 py-1 ml-2 text-white rounded`} type="reset" onClick={handleReset}>Reset</button>
                     </div>
                 }
             </div>

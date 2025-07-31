@@ -1,0 +1,11 @@
+.labeloption:hover {
+  background-color: #f0f0f0;
+}
+
+.submitbutton{
+  transition: background-color 0.5s, color 0.5s;
+}
+.submitbutton:hover {
+  background-color: #1250af;
+  color: #fff;
+}
