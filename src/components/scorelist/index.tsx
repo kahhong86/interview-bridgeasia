@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import React, { useEffect, useState , FC } from "react";
+import { collection, deleteDoc, getDocs, doc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
-import Header from "../header";
 import Layout from "../layout";
 
 type Score = {
@@ -12,8 +11,22 @@ type Score = {
   value: number;
 };
 
-const ScoreList: React.FC = () => {
-  const [scores, setScores] = useState<Score[]>([]);
+const ScoreList: FC = () => {
+const [scores, setScores] = useState<Score[]>([]);
+
+const handleDelete = async (id: string) => {
+  await deleteDoc(doc(db, "scores", id));
+  setScores(scores.filter(score => score.id !== id));
+};
+
+const handleDeleteAll = async () => {
+  const querySnapshot = await getDocs(collection(db, "scores"));
+  const batchDeletes = querySnapshot.docs.map(docSnap =>
+    deleteDoc(doc(db, "scores", docSnap.id))
+  );
+  await Promise.all(batchDeletes);
+  setScores([]);
+};
 
   useEffect(() => {
     const fetchScores = async () => {
@@ -38,13 +51,27 @@ const ScoreList: React.FC = () => {
           <p className="font-bold text-lg">Name</p>
           <p className="font-bold text-lg">Score</p>
         </div>
-        <div>
+        <div className="relative">
             {scores.map(score => (
               <div key={score.id} className="score-list">
                 <p>{score.name}</p>
                 <p>{score.value}</p>
+                <button
+                  className="ml-4 text-red-500 cursor-pointer absolute right-[-60px]"
+                  onClick={() => handleDelete(score.id)}
+                >
+                  Delete
+                </button>
               </div>
             ))}
+        </div>
+        <div className="text-right mt-2">
+            <button
+              className="mt-4 px-4 py-2 bg-red-500 text-white rounded cursor-pointer"
+              onClick={handleDeleteAll}
+            >
+              Delete All Scores
+            </button>
         </div>
     </Layout>
   );

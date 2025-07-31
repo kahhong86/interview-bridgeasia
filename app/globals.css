@@ -36,6 +36,9 @@ body {
   background: transparent;
   color: #fff;
 }
+.dark-mode .score-list:nth-child(even) {
+  background-color: #333;
+}
 
 .score-list {
   display: flex;
@@ -52,3 +55,4 @@ body {
 .score-list:nth-child(even) {
   background-color: #f9f9f9;
 }
+

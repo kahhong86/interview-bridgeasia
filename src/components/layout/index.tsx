@@ -1,11 +1,12 @@
 import React from "react";
 import Header from "@/src/components/header";
+import { FC } from "react";
 
 interface LayoutProps{
     children:any,
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: FC<LayoutProps> = ({ children }) => {
     const [darkMode, setDarkMode] = React.useState(false);
 
     const toggleDarkMode = () => {

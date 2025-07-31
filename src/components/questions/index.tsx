@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { Question } from './question';
 
 interface QuestionListProps {
   onSubmitScore: (score: number | null) => void;
   name: string;
+  onNameChange: (name: string) => void;
 }
 
-const QuestionList: React.FC<QuestionListProps> = ({ onSubmitScore, name }) => {
+const QuestionList: FC<QuestionListProps> = ({ onSubmitScore, name, onNameChange }) => {
     const [selected, setSelected] = useState<{[key: number]: number | null}>({});
     const [submitted, setSubmitted] = useState(false);
 
@@ -38,12 +39,14 @@ const QuestionList: React.FC<QuestionListProps> = ({ onSubmitScore, name }) => {
         setSelected({});
         setSubmitted(false);
         onSubmitScore(null);
+        onNameChange("");
     };
 
     const handleRestart = () => {
         setSelected({});
         setSubmitted(false);
         onSubmitScore(null);
+        onNameChange("");
     };
 
     return (
